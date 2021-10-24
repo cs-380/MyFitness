@@ -3,6 +3,8 @@ import java.sql.*;
 
 public class Database
 {
+	
+	
 	public static void getDatabase()
 	{
 		Connection c = null;
@@ -10,7 +12,7 @@ public class Database
 	    try 
 	    {
 	         Class.forName("org.sqlite.JDBC");
-	         c = DriverManager.getConnection("jdbc:sqlite:test.db");
+	         c = DriverManager.getConnection("jdbc:sqlite:FOOD.db");
 	    }    
 	    catch ( Exception e ) 
 	    {
@@ -20,4 +22,6 @@ public class Database
 	      
 	    System.out.println("Opened database successfully");
 	}
+	
+
 }

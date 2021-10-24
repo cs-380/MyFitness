@@ -4,21 +4,27 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" 
-minWidth="-Infinity" prefHeight="583.0" prefWidth="1231.0" style="-fx-background-color: grey;" 
-tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" 
-fx:controller="MainController">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="583.0" prefWidth="1231.0" style="-fx-background-color: grey;" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainController">
   <tabs>
     <Tab id="MealList" style="-fx-background-color: lightblue;" text="Meal List">
       <content>
         <AnchorPane fx:id="MealList" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: grey;">
                <children>
-                  <TextArea fx:id="MLInfo" layoutX="569.0" layoutY="34.0" prefHeight="438.0" prefWidth="625.0" />
-                  <Button fx:id="AddFoodButton" layoutX="190.0" layoutY="128.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="120.0" text="Add Specific Food" />
-                  <Button fx:id="AddMealButton" layoutX="190.0" layoutY="174.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="120.0" text="Add Meal" />
-                  <Button fx:id="GenerateMealButton" layoutX="190.0" layoutY="221.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="120.0" text="Generate Meal" />
+                  <TextArea fx:id="MLInfo" editable="false" layoutX="808.0" layoutY="128.0" prefHeight="347.0" prefWidth="335.0" />
+                  <Button fx:id="AddFoodButton" layoutX="190.0" layoutY="83.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: lightblue;" text="Add Specific Food" />
+                  <Button fx:id="AddMealButton" layoutX="496.0" layoutY="83.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: lightblue;" text="Add Meal" />
+                  <Button fx:id="GenerateMealButton" layoutX="995.0" layoutY="71.0" mnemonicParsing="false" onAction="#GenerateMeal" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: lightblue;" text="Generate Meal" />
+                  <TextField layoutX="190.0" layoutY="157.0" style="-fx-background-color: red;" />
+                  <TextField layoutX="190.0" layoutY="128.0" style="-fx-background-color: red;" />
+                  <TextField layoutX="190.0" layoutY="189.0" style="-fx-background-color: red;" />
+                  <TextField layoutX="496.0" layoutY="156.0" style="-fx-background-color: red;" />
+                  <TextField layoutX="496.0" layoutY="127.0" style="-fx-background-color: red;" />
+                  <TextField layoutX="496.0" layoutY="188.0" style="-fx-background-color: red;" />
+                  <Button fx:id="NutritionSearchButton" layoutX="825.0" layoutY="71.0" mnemonicParsing="false" onAction="#SearchTable" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: lightblue;" text="Nutrition search" />
+                  <TextField fx:id="foodSearchField" layoutX="825.0" layoutY="103.0" onAction="#SearchTable" promptText="Name of food" style="-fx-background-color: red;" />
                </children></AnchorPane>
       </content>
     </Tab>
