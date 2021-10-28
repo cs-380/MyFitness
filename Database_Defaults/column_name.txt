@@ -1,0 +1,49 @@
+ID
+Name
+Description
+Calories
+Protein
+Carbs
+Sugars
+Fiber
+Fat
+Fatty acids, saturated
+Fatty acids, monounsaturated 
+Fatty acids, polyunsaturated 
+Cholesterol (mg)
+Retinol (mcg)
+Vitamin A, RAE (mcg_RAE)
+Carotene, alpha (mcg)
+Carotene, beta (mcg)
+Cryptoxanthin, beta (mcg)
+Lycopene (mcg)
+Lutein + zeaxanthin (mcg)
+Thiamin (mg)
+Riboflavin (mg)
+Niacin (mg)
+Vitamin B-6 (mg)
+Folic acid (mcg)
+Folate, food (mcg)
+Folate, DFE (mcg_DFE)
+Folate, total (mcg)
+Choline (mg)
+Vitamin B-12 (mcg)
+Vitamin B-12, added (mcg)
+Vitamin C (mg)
+Vitamin D (D2 + D3) (mcg)
+Vitamin E (alpha-tocopherol) (mg)
+Vitamin E, added (mg)
+Vitamin K (phylloquinone) (mcg)
+Calcium (mg)
+Phosphorus (mg)
+Magnesium (mg)
+Iron (mg)
+Zinc (mg)
+Copper (mg)
+Selenium (mcg)
+Potassium (mg)
+Sodium (mg)
+Caffeine (mg)
+Theobromine (mg)
+Alcohol (g)
+Water (g)
