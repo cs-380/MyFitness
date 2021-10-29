@@ -75,6 +75,26 @@ public class Table {
     		   sql += " );";
         command.Query(sql);
     }
+    public void addNew_Link(int ID) {
+        String sql = "INSERT INTO " 
+    			+ tableName
+    			+" ("
+        	    + "\""+ "Description" + "\"" + ", "
+        	    + "\""+ "ID" + "\"" + ", "
+        	    + "\""+ "ID_1" + "\"" + ", "
+        	    + "\""+ "ID_2" + "\"" + ", "
+        	    + "\"" + "Portion (g)" + "\""
+    		    + ") "
+				+ "VALUES ( "
+
+				+ "\"\"" 
+				+ ", " + ID
+				+ ", " + 0
+        		+ ", " + 0
+        		+ ", " + 0
+    		    + " );";
+        command.Query(sql);
+    }
     public String[] getArrayCollumns() {
 		try {
 			return  Files.lines(Paths.get(defaults + "\\column_name.txt"))
@@ -92,75 +112,96 @@ public class Table {
     }
     private void create_table() {
     	if(!command.tableExists(tableName)) {
-    		String sql = "CREATE TABLE "
-					+ "\"" + tableName + "\"" 
-    				+ " (\r\n"
-    				+ "	\"ID\"	INTEGER NOT NULL UNIQUE,\r\n"
-    				+ "	\"Name\"	NVARCHAR(100),\r\n"
-    				+ "	\"Description\"	NVARCHAR(1000),\r\n"
-    				+ "	\"Calories\"	FLOAT,\r\n"
-    				+ "	\"Protein\"	FLOAT,\r\n"
-    				+ "	\"Carbs\"	FLOAT,\r\n"
-    				+ "	\"Sugars\"	FLOAT,\r\n"
-    				+ "	\"Fiber\"	FLOAT,\r\n"
-    				+ "	\"Fat\"	FLOAT,\r\n"
-    				+ "	\"Fatty acids, saturated\"	FLOAT,\r\n"
-    				+ "	\"Fatty acids, monounsaturated \"	FLOAT,\r\n"
-    				+ "	\"Fatty acids, polyunsaturated \"	FLOAT,\r\n"
-    				+ "	\"Cholesterol (mg)\"	FLOAT,\r\n"
-    				+ "	\"Retinol (mcg)\"	FLOAT,\r\n"
-    				+ "	\"Vitamin A, RAE (mcg_RAE)\"	FLOAT,\r\n"
-    				+ "	\"Carotene, alpha (mcg)\"	FLOAT,\r\n"
-    				+ "	\"Carotene, beta (mcg)\"	FLOAT,\r\n"
-    				+ "	\"Cryptoxanthin, beta (mcg)\"	FLOAT,\r\n"
-    				+ "	\"Lycopene (mcg)\"	FLOAT,\r\n"
-    				+ "	\"Lutein + zeaxanthin (mcg)\"	FLOAT,\r\n"
-    				+ "	\"Thiamin (mg)\"	FLOAT,\r\n"
-    				+ "	\"Riboflavin (mg)\"	FLOAT,\r\n"
-    				+ "	\"Niacin (mg)\"	FLOAT,\r\n"
-    				+ "	\"Vitamin B-6 (mg)\"	FLOAT,\r\n"
-    				+ "	\"Folic acid (mcg)\"	FLOAT,\r\n"
-    				+ "	\"Folate, food (mcg)\"	FLOAT,\r\n"
-    				+ "	\"Folate, DFE (mcg_DFE)\"	FLOAT,\r\n"
-    				+ "	\"Folate, total (mcg)\"	FLOAT,\r\n"
-    				+ "	\"Choline (mg)\"	FLOAT,\r\n"
-    				+ "	\"Vitamin B-12 (mcg)\"	FLOAT,\r\n"
-    				+ "	\"Vitamin B-12, added (mcg)\"	FLOAT,\r\n"
-    				+ "	\"Vitamin C (mg)\"	FLOAT,\r\n"
-    				+ "	\"Vitamin D (D2 + D3) (mcg)\"	FLOAT,\r\n"
-    				+ "	\"Vitamin E (alpha-tocopherol) (mg)\"	FLOAT,\r\n"
-    				+ "	\"Vitamin E, added (mg)\"	FLOAT,\r\n"
-    				+ "	\"Vitamin K (phylloquinone) (mcg)\"	FLOAT,\r\n"
-    				+ "	\"Calcium (mg)\"	FLOAT,\r\n"
-    				+ "	\"Phosphorus (mg)\"	FLOAT,\r\n"
-    				+ "	\"Magnesium (mg)\"	FLOAT,\r\n"
-    				+ "	\"Iron (mg)\"	FLOAT,\r\n"
-    				+ "	\"Zinc (mg)\"	FLOAT,\r\n"
-    				+ "	\"Copper (mg)\"	FLOAT,\r\n"
-    				+ "	\"Selenium (mcg)\"	FLOAT,\r\n"
-    				+ "	\"Potassium (mg)\"	FLOAT,\r\n"
-    				+ "	\"Sodium (mg)\"	FLOAT,\r\n"
-    				+ "	\"Caffeine (mg)\"	FLOAT,\r\n"
-    				+ "	\"Theobromine (mg)\"	FLOAT,\r\n"
-    				+ "	\"Alcohol (g)\"	FLOAT,\r\n"
-    				+ "	\"Water (g)\"	FLOAT,\r\n"
-    				+ "	PRIMARY KEY(\"ID\")\r\n"
-    				+ ");" ;
-			command.Query(sql);
-    		close();
-    		if(tableName.equals("FOOD_DATA")) {
-    			for(int i = 1; i <= 4; i++) {
-    				try {
-    					sql = new String (Files.readAllBytes(Paths.get(defaults + "\\food"+i+".txt")));
-    					command.Query(sql);
-    				} catch (IOException e) {
-    					// TODO Auto-generated catch block
-    					e.printStackTrace();
-    				}
-    			}
+    		if(tableName.contains("LINK")) {
+        		String sql = "CREATE TABLE "
+    					+ "\"" + tableName + "\"" 
+        				+ " (\r\n"
+    					+ " \"Description\" NVARCHAR(100),"
+        				+ " \"ID\"	INTEGER,\r\n" 
+        				+ " \"ID_1\"	INTEGER,\r\n"
+        				+ " \"ID_2\"	INTEGER,\r\n"
+        				+ " \"Portion (g)\"	FLOAT,\r\n"
+        				+ " FOREIGN KEY(\"ID_2\") REFERENCES \"FOOD_DATA\"(\"ID\"),\r\n" 
+        				+ " FOREIGN KEY(\"ID_1\") REFERENCES \"MEAL_DATA\"(\"ID\"),\r\n" 
+        				+ " PRIMARY KEY(\"ID\")"
+        				+ ");" ;
+    			command.Query(sql);
+        		close();
+            	table_state = true;
+        		return;
+    		}
+    		if(tableName.contains("_DATA")) {
+        		String sql = "CREATE TABLE "
+    					+ "\"" + tableName + "\"" 
+        				+ " (\r\n"
+        				+ "	\"ID\"	INTEGER NOT NULL UNIQUE,\r\n"
+        				+ "	\"Name\"	NVARCHAR(100),\r\n"
+        				+ "	\"Description\"	NVARCHAR(1000),\r\n"
+        				+ "	\"Calories\"	FLOAT,\r\n"
+        				+ "	\"Protein\"	FLOAT,\r\n"
+        				+ "	\"Carbs\"	FLOAT,\r\n"
+        				+ "	\"Sugars\"	FLOAT,\r\n"
+        				+ "	\"Fiber\"	FLOAT,\r\n"
+        				+ "	\"Fat\"	FLOAT,\r\n"
+        				+ "	\"Fatty acids, saturated\"	FLOAT,\r\n"
+        				+ "	\"Fatty acids, monounsaturated\"	FLOAT,\r\n"
+        				+ "	\"Fatty acids, polyunsaturated\"	FLOAT,\r\n"
+        				+ "	\"Cholesterol (mg)\"	FLOAT,\r\n"
+        				+ "	\"Retinol (mcg)\"	FLOAT,\r\n"
+        				+ "	\"Vitamin A, RAE (mcg_RAE)\"	FLOAT,\r\n"
+        				+ "	\"Carotene, alpha (mcg)\"	FLOAT,\r\n"
+        				+ "	\"Carotene, beta (mcg)\"	FLOAT,\r\n"
+        				+ "	\"Cryptoxanthin, beta (mcg)\"	FLOAT,\r\n"
+        				+ "	\"Lycopene (mcg)\"	FLOAT,\r\n"
+        				+ "	\"Lutein + zeaxanthin (mcg)\"	FLOAT,\r\n"
+        				+ "	\"Thiamin (mg)\"	FLOAT,\r\n"
+        				+ "	\"Riboflavin (mg)\"	FLOAT,\r\n"
+        				+ "	\"Niacin (mg)\"	FLOAT,\r\n"
+        				+ "	\"Vitamin B-6 (mg)\"	FLOAT,\r\n"
+        				+ "	\"Folic acid (mcg)\"	FLOAT,\r\n"
+        				+ "	\"Folate, food (mcg)\"	FLOAT,\r\n"
+        				+ "	\"Folate, DFE (mcg_DFE)\"	FLOAT,\r\n"
+        				+ "	\"Folate, total (mcg)\"	FLOAT,\r\n"
+        				+ "	\"Choline (mg)\"	FLOAT,\r\n"
+        				+ "	\"Vitamin B-12 (mcg)\"	FLOAT,\r\n"
+        				+ "	\"Vitamin B-12, added (mcg)\"	FLOAT,\r\n"
+        				+ "	\"Vitamin C (mg)\"	FLOAT,\r\n"
+        				+ "	\"Vitamin D (D2 + D3) (mcg)\"	FLOAT,\r\n"
+        				+ "	\"Vitamin E (alpha-tocopherol) (mg)\"	FLOAT,\r\n"
+        				+ "	\"Vitamin E, added (mg)\"	FLOAT,\r\n"
+        				+ "	\"Vitamin K (phylloquinone) (mcg)\"	FLOAT,\r\n"
+        				+ "	\"Calcium (mg)\"	FLOAT,\r\n"
+        				+ "	\"Phosphorus (mg)\"	FLOAT,\r\n"
+        				+ "	\"Magnesium (mg)\"	FLOAT,\r\n"
+        				+ "	\"Iron (mg)\"	FLOAT,\r\n"
+        				+ "	\"Zinc (mg)\"	FLOAT,\r\n"
+        				+ "	\"Copper (mg)\"	FLOAT,\r\n"
+        				+ "	\"Selenium (mcg)\"	FLOAT,\r\n"
+        				+ "	\"Potassium (mg)\"	FLOAT,\r\n"
+        				+ "	\"Sodium (mg)\"	FLOAT,\r\n"
+        				+ "	\"Caffeine (mg)\"	FLOAT,\r\n"
+        				+ "	\"Theobromine (mg)\"	FLOAT,\r\n"
+        				+ "	\"Alcohol (g)\"	FLOAT,\r\n"
+        				+ "	\"Water (g)\"	FLOAT,\r\n"
+        				+ "	PRIMARY KEY(\"ID\")\r\n"
+        				+ ");" ;
+    			command.Query(sql);
+        		close();
+        		if(tableName.equals("FOOD_DATA")) {
+        			for(int i = 1; i <= 4; i++) {
+        				try {
+        					sql = new String (Files.readAllBytes(Paths.get(defaults + "\\food"+i+".txt")));
+        					command.Query(sql);
+        				} catch (IOException e) {
+        					// TODO Auto-generated catch block
+        					e.printStackTrace();
+        				}
+        			}
+        		}
+            	table_state = true;
+        		return;
     		}
     	}
-    	table_state = true;
     }
 	public void set_value_by_ID(int iD, String column_name, Object value) {
 		command.Query("UPDATE "
@@ -191,7 +232,5 @@ public class Table {
     {
         command.SQL_close();
     }
-}
-
-    
+}  
 
