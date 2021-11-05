@@ -306,7 +306,14 @@ public class Food {
 		return Water;
 	}
 	public void set_new_ID(int ID_new) {
+    	if(!command.rowExists(TABLE_NAME, ID_new) && ID != ID_new) {
+    		ID = ID_new;
+    		table.addNew_Food(ID_new);
+    		get_table_by_ID(ID_new);
+    		return;
+    	}
 		ID = ID_new;
+    	get_table_by_ID(ID_new);
 		table.set_value_by_ID(ID, "ID",ID_new);
 	}
 	public void setName(String name) {
@@ -501,4 +508,18 @@ public class Food {
 		Water = water;
 		table.set_value_by_ID(ID, "\"Water (g)\"" ,water);
 	}
+    public String toString() {
+        return "\n"
+        		+ "***************************"  + "\n"
+        		+"ID: "+ getID() + "\n"
+        		+"Name: "+ getName() + "\n"
+        		+"Calories: "+ getCalories() + "\n"	
+        		+"Protein: "+ getProtein() + "\n"	
+        		+"Carbs: "+ getCarbs() + "\n"
+        		+"Sugars: "+ getSugars() + "\n"
+        		+"Fiber: "+ getFiber() + "\n"
+        		+"Fat: " + getFat()  + "\n"
+        		+"***************************"  + "\n"
+        		;
+    }
 }
