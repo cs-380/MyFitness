@@ -1,6 +1,8 @@
 
 import javafx.application.Application;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TabPane;
 import javafx.fxml.FXMLLoader;
@@ -11,12 +13,13 @@ public class Main extends Application
 	public void start(Stage primaryStage) 
 	{
 		try 
-		{
-			TabPane root = (TabPane)FXMLLoader.load(getClass().getResource("MainScene.fxml"));
-			Scene scene = new Scene(root,1231.0,583.0);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-			primaryStage.setTitle("MyFitness");
-			primaryStage.setScene(scene);
+		{	
+			//AnchorPane ap = new AnchorPane();
+			Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+			//Scene scene = new Scene();
+			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());	
+			primaryStage.setTitle("Login");
+			primaryStage.setScene(new Scene(root, 500 , 500 ));
 			primaryStage.show();
 		} 
 		
