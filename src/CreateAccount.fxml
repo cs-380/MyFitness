@@ -23,13 +23,13 @@
             <PasswordField fx:id="txtFieldPswrdConfirm" layoutX="64.0" layoutY="319.0" promptText="Re-enter your password" />
             <TextField fx:id="txtFieldProfileName" layoutX="469.0" layoutY="113.0" promptText="Profiles display name" />
             <Label layoutX="606.0" layoutY="156.0" text="Age" />
-            <Label layoutX="553.0" layoutY="229.0" text="Current Weight" />
+            <Label layoutX="553.0" layoutY="264.0" text="Current Weight" />
             <TextField fx:id="txtFieldAge" layoutX="469.0" layoutY="178.0" promptText="Enter your age" />
-            <TextField fx:id="txtFieldCrntWeight" layoutX="470.0" layoutY="251.0" promptText="How much do you weight" />
-            <Label layoutX="561.0" layoutY="302.0" text="Goal Weight" />
-            <TextField fx:id="txtFieldGoalWeight" layoutX="469.0" layoutY="319.0" promptText="What is your goal weight" />
-            <RadioButton fx:id="radioKilo" layoutX="550.0" layoutY="388.0" mnemonicParsing="false" onAction="#radioKilo" text="Kilograms" />
-            <RadioButton fx:id="radioPounds" layoutX="562.0" layoutY="360.0" mnemonicParsing="false" onAction="#radioPounds" selected="true" text="Pounds" />
+            <TextField fx:id="txtFieldCrntWeight" layoutX="470.0" layoutY="290.0" promptText="How much do you weigh" />
+            <Label layoutX="561.0" layoutY="323.0" text="Goal Weight" />
+            <TextField fx:id="txtFieldGoalWeight" layoutX="470.0" layoutY="344.0" promptText="What is your goal weight" />
+            <RadioButton fx:id="radioKilo" layoutX="465.0" layoutY="383.0" mnemonicParsing="false" onAction="#radioKilo" text="Metric" />
+            <RadioButton fx:id="radioPounds" layoutX="532.0" layoutY="383.0" mnemonicParsing="false" onAction="#radioPounds" selected="true" text="US Customary" />
             <Button fx:id="btnCrtAcct" layoutX="275.0" layoutY="337.0" mnemonicParsing="false" onAction="#createAcctBtn" prefHeight="64.0" prefWidth="136.0" text="Create Account" textAlignment="CENTER">
                <font>
                   <Font size="17.0" />
@@ -50,4 +50,6 @@
                   <Font size="10.0" />
                </font>
             </Label>
+   <TextField fx:id="txtFieldHeight" layoutX="473.0" layoutY="237.0" promptText="How tall are you (cm / in)" />
+   <Label layoutX="588.0" layoutY="216.0" text="Height" />
 		</Pane>

@@ -78,16 +78,16 @@
          <content>
             <AnchorPane fx:id="MealList1" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: grey;">
                <children>
-                  <Label layoutX="128.0" layoutY="48.0" text="Mark Markerson" />
+                  <Label fx:id="lblName" layoutX="128.0" layoutY="48.0" text="NAME" />
                   <ImageView fitHeight="65.0" fitWidth="63.0" layoutX="28.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../Downloads/icons8-artificial-intelligence-50.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="128.0" layoutY="88.0" text="Age :  22" />
-                  <Label layoutX="128.0" layoutY="161.0" text="Current weight : 196lbs" />
-                  <Label layoutX="128.0" layoutY="241.0" text="Goal weight : 200lbs" />
-                  <Label layoutX="128.0" layoutY="124.0" text="Height : 5' 10&quot;" />
+                  <Label fx:id="lblAge" layoutX="128.0" layoutY="88.0" text="AGE" />
+                  <Label fx:id="lblCrtWei" layoutX="126.0" layoutY="199.0" text="CURRENT WEIGHT" />
+                  <Label fx:id="lblGoalWei" layoutX="128.0" layoutY="236.0" text="GOAL WEIGHT" />
+                  <Label fx:id="lblHeight" layoutX="128.0" layoutY="124.0" text="HEIGHT" />
                   <LineChart layoutX="91.0" layoutY="271.0" prefHeight="267.0" prefWidth="571.0">
                     <xAxis>
                       <CategoryAxis side="BOTTOM" />
@@ -172,7 +172,9 @@
                   <Label layoutX="1039.0" layoutY="161.0" prefHeight="17.0" prefWidth="110.0" text="Deadlift Goal : 630" />
                   <Label layoutX="1037.0" layoutY="199.0" prefHeight="17.0" prefWidth="91.0" text="Mile Goal : 5:45" />
                   <Button layoutX="1140.0" layoutY="13.0" mnemonicParsing="false" text="Edit Profile" />
-                  <Button layoutX="1140.0" layoutY="45.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Logout" />
+                  <Button fx:id="btnLogout" layoutX="1140.0" layoutY="45.0" mnemonicParsing="false" onAction="#logout" prefHeight="25.0" prefWidth="75.0" text="Logout" />
+                  <Label fx:id="lblStartWei" layoutX="128.0" layoutY="161.0" text="START WEIGHT" />
+                  <Label layoutX="362.0" layoutY="268.0" text="Progress" />
                </children></AnchorPane>
          </content>
       </Tab>

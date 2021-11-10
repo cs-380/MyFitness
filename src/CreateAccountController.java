@@ -38,10 +38,12 @@ public class CreateAccountController {
 	@FXML
 	private TextField txtFieldGoalWeight;
 	@FXML
+	private TextField txtFieldHeight;
+	@FXML
 	private RadioButton radioKilo;
 	@FXML
 	private RadioButton radioPounds;
-	
+
 	
 	//GETTERS
 	public String gettxtFieldUsername()
@@ -86,6 +88,11 @@ public class CreateAccountController {
 		return goalWei;
 	}
 	
+	public String gettxtFieldHeight()
+	{
+		String height = txtFieldHeight.getText().trim();
+		return height;
+	}
 	
 
 	
@@ -100,6 +107,7 @@ public class CreateAccountController {
 		boolean passesAge = true;
 		boolean passesWei = true;
 		boolean passesGoalWei = true;
+		boolean passesHeight = true;
 		
 		//Make sure username is between 1-20 chars 
 		if(!passesUsr == usernameCheck())
@@ -137,6 +145,12 @@ public class CreateAccountController {
 			passesGoalWei = false;
 			passes = false;
 		}
+		
+		if(!passesHeight == heightCheck())
+		{
+			passesHeight = false;
+			passes = false;
+		}
 
 		
 		
@@ -154,10 +168,11 @@ public class CreateAccountController {
 				
 				String sql;
 				sql = "INSERT INTO USER_DATA ( USERNAME, PASSWORD, PROFILE_NAME, "
-				+ "AGE, START_WEIGHT, GOAL_WEIGHT, CURRENT_WEIGHT) "
+				+ "AGE, HEIGHT, START_WEIGHT, GOAL_WEIGHT, CURRENT_WEIGHT, METRIC_CHECK ) "
 				+ "VALUES ( '"+ gettxtFieldUsername() +"', '" + gettxtFieldPswrd() 
 				+ "', '" + gettxtFieldProfileName() + "', " + gettxtFieldAge() + ", " 
-				+ gettxtFieldCrntWeight() + ", " + gettxtFieldGoalWeight() + ", 0 )";
+				+ gettxtFieldHeight() + ", " + gettxtFieldCrntWeight() + ", " + 
+				gettxtFieldGoalWeight() + ", 0, " + isSelected() + " )";
 					
 				stmt.executeUpdate(sql);
 				
@@ -239,6 +254,14 @@ public class CreateAccountController {
 			{
 				txtFieldGoalWeight.setStyle("-fx-text-box-border: #000000;");
 			}
+			if(passesHeight == false)
+			{
+				txtFieldHeight.setStyle("-fx-text-box-border: #B22222;");
+			}
+			else
+			{
+				txtFieldHeight.setStyle("-fx-text-box-border: #000000;");
+			}
 		}
 	}
 	
@@ -253,6 +276,7 @@ public class CreateAccountController {
 		{
 			radioKilo.setSelected(true);
 		}
+		
 	}
 	
 	public void radioKilo(ActionEvent event)
@@ -263,6 +287,19 @@ public class CreateAccountController {
 		else
 		{
 			radioPounds.setSelected(true);
+		}
+		
+	}
+	
+	public int isSelected()
+	{
+		if(radioKilo.isSelected())
+		{
+			return 1;
+		}
+		else
+		{
+			return 0;
 		}
 	}
 	
@@ -403,6 +440,31 @@ public class CreateAccountController {
 		if(!wei.isEmpty() || !wei.isBlank())
 		{
 			for(char c : wei.toCharArray())
+			{
+				if(!Character.isDigit(c))
+				{	
+					//contains a char 
+					noChar = false;
+				}
+			}
+		}
+		else
+		{
+			noChar = false;
+		}
+		
+		return noChar;
+	}
+	
+	
+	public boolean heightCheck()
+	{
+		String hei = gettxtFieldGoalWeight();
+		boolean noChar = true;
+		
+		if(!hei.isEmpty() || !hei.isBlank())
+		{
+			for(char c : hei.toCharArray())
 			{
 				if(!Character.isDigit(c))
 				{	
