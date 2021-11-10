@@ -20,8 +20,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
-
-
 public class MainController implements Initializable
 {
 	@FXML
@@ -78,34 +76,7 @@ public class MainController implements Initializable
 		
 	}
 	
-	public void SearchTable()  // for getting nutrition from food name *obsolete*
-	{
-		String input = getFoodSearchField().getText();
-		
-      // Open a connection
-      try(Connection conn = DriverManager.getConnection("jdbc:sqlite:FOOD.db");
-         Statement stmt = conn.createStatement();
-         ResultSet rs = stmt.executeQuery("SELECT * FROM FOOD_DATA");
-      ) 
-      {		      
-         while(rs.next())
-         {
-        	 int tName = rs.getInt("ID");
-        	 int input2 = Integer.parseInt(input);
-        	 
-        	 if (input2 == tName)
-        	 {
-        		 tArea.setText("Fat: " + rs.getInt("Fat"));
-        	 }
 
-         }
-      } 
-      catch (SQLException e) 
-      {
-         e.printStackTrace();
-      } 
-      
-	}
     public void search_for_food() {
     	TextField inputs = getFoodSearchField();
        // scan = new Scanner(System.in);
@@ -156,7 +127,7 @@ public class MainController implements Initializable
 			e.printStackTrace();
 		}
 	}
-	
+//TODO 
 	private void init()
 	{
 		//Connect to db
@@ -165,6 +136,13 @@ public class MainController implements Initializable
         ResultSet rs = stmt.executeQuery("SELECT * FROM USER_DATA");
 	    )
 		{
+			
+		while(rs.next())
+		{
+			
+			if( rs.getString("username").equals(LoginController.global))
+			{
+			
 			int units = rs.getInt("metric_check");
 			String weiUnit;
 			String heightUnit;
@@ -203,8 +181,10 @@ public class MainController implements Initializable
 			lblHeight.setText("Height : " + " " + heightUnit);
 			lblStartWei.setText("Starting Weight : " + Integer.toString(rs.getInt("start_weight")) + " " +  weiUnit);
 			lblCrtWei.setText("Current Weight : " + Integer.toString(rs.getInt("goal_weight")) + " " + weiUnit);
-			lblGoalWei.setText("Goal Weight : " + Integer.toString(rs.getInt("current_weight")) + " " + weiUnit);
-					
+		    lblGoalWei.setText("Goal Weight : " + Integer.toString(rs.getInt("current_weight")) + " " + weiUnit);
+		    
+			}//close if 
+			}//close while 	
 		}
 		catch(SQLException e)
 		{

@@ -21,6 +21,8 @@ import javafx.stage.Stage;
 public class LoginController {
 
 	
+	public static String global = "";
+	
 	@FXML
 	private Button BtnLogin;
 	@FXML
@@ -31,7 +33,7 @@ public class LoginController {
 	private TextField txtFieldPswrd;
 	@FXML
 	private Label lblWrongCredentials;
-	
+
 	
 	//Getters
 	public String getUsr()
@@ -47,7 +49,7 @@ public class LoginController {
 	}
 	
 	
-	
+//TODO Fix to use all usernames 	
 	
 	public void loginBtn(ActionEvent event)
 	{
@@ -62,35 +64,40 @@ public class LoginController {
 			String enteredUsr = getUsr();
 			String enteredPswrd = getPswrd();
 			
-			String tblUsr = rs.getString("username");
-			String tblPswrd = rs.getString("password");
 			
-			
-			if(enteredUsr.equals(tblUsr) && enteredPswrd.equals(tblPswrd))
+			while(rs.next())
 			{
-				//Correct login 
-				//Close this stage
-				Stage stage1 = (Stage) btnCrtAcct.getScene().getWindow();
-		    	stage1.close();
-		    	
-		    	
-		    	//Open Main stage 
-				TabPane root = (TabPane)FXMLLoader.load(getClass().getResource("MainScene.fxml"));
-				Scene scene = new Scene(root,1231.0,583.0);
-				scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-				stage1.setTitle("MyFitness");
-				stage1.setScene(scene);
-				stage1.show();
 				
-		    	
+				String tblUsr = rs.getString("username");
+				String tblPswrd = rs.getString("password");
+				
+				if(enteredUsr.equals(tblUsr) && enteredPswrd.equals(tblPswrd))
+				{
+					global = enteredUsr;
+					//Correct login 
+					//Close this stage
+					Stage stage1 = (Stage) btnCrtAcct.getScene().getWindow();
+			        stage1.close();
+			    	
+			    	
+			    	//Open Main stage 
+					TabPane root = (TabPane)FXMLLoader.load(getClass().getResource("MainScene.fxml"));
+					Scene scene = new Scene(root,1231.0,583.0);
+					scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+					stage1.setTitle("MyFitness");
+					stage1.setScene(scene);
+					stage1.show();
+					
+			    	
+				}
+				else
+				{
+					//Wrong Username or Password please retry
+					lblWrongCredentials.setVisible(false);
+					lblWrongCredentials.setVisible(true);
+				}
+			
 			}
-			else
-			{
-				//Wrong Username or Password please retry
-				lblWrongCredentials.setVisible(false);
-				lblWrongCredentials.setVisible(true);
-			}
-		
 			
 		 } catch (SQLException | IOException e) {
 			//Auto-generated catch block

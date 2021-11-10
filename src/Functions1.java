@@ -49,12 +49,12 @@ public class Functions1 {
         return str;
     }
     
-    public File accessFile(String str){
+    public static File accessFile(String str){
         File file = new File(str);
         return file;
     }
     
-    public void createFile(String str){
+    public static void createFile(String str){
         try{
             File testFile = new File(str);
             if(testFile.createNewFile()){
@@ -67,7 +67,7 @@ public class Functions1 {
         }
     }
     
-    public void deleteFile(String str){
+    public static void deleteFile(String str){
         try{
             File testFile = new File(str);
             if(testFile.delete()){
@@ -95,7 +95,7 @@ public class Functions1 {
         return strb;
     }
     
-    public void writeToFile(File file, String str){
+    public static void writeToFile(File file, String str){
         try {
             BufferedWriter myWriter = new BufferedWriter(new FileWriter(file, true));
             myWriter.append("\n" + str);
@@ -116,7 +116,7 @@ public class Functions1 {
         return str;
     }
     
-    public int getNumberOfLines(File file){
+    public static int getNumberOfLines(File file){
         int i = 0;
         try{
             BufferedReader br = new BufferedReader(new FileReader(file));

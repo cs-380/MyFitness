@@ -9,6 +9,7 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -186,14 +187,10 @@ public class CreateAccountController {
 		    	stage1.close();
 		    	
 		    	
-		    	//Open Main stage 
-				TabPane root = (TabPane)FXMLLoader.load(getClass().getResource("MainScene.fxml"));
-				Scene scene = new Scene(root,1231.0,583.0);
-				scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-				Stage stage = new Stage();
-				stage.setTitle("MyFitness");
-				stage.setScene(scene);
-				stage.show();
+		    	Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
+				stage1.setTitle("Create Account");
+				stage1.setScene(new Scene(root));
+				stage1.show();
 				
 				}
 				catch (SQLException | IOException e) {

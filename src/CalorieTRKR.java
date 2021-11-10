@@ -1,12 +1,9 @@
-
+/*
 import java.util.*;
 import java.sql.*;
 import java.io.*;
 
-/**
- *
- * @author Jacob Shank
- */
+
 public class CalorieTRKR extends User{
     private String fileName;
     private User person;
@@ -58,3 +55,4 @@ public class CalorieTRKR extends User{
     }
     
 }
+*/
