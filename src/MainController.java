@@ -7,6 +7,10 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -46,7 +50,13 @@ public class MainController implements Initializable
 	private Label lblCrtWei;
 	@FXML
 	private Label lblGoalWei;
-	
+	@FXML
+	private LineChart<Number, Number> CalorieChart;
+    @FXML
+    private CategoryAxis x;
+    @FXML
+    private NumberAxis y;
+
 	
 	
 	public TextArea gettArea()
@@ -197,7 +207,15 @@ public class MainController implements Initializable
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		//Auto-generated method stub
 		init();
-		
+		XYChart.Series series1 = new XYChart.Series();
+	    series1.setName("Series 1");
+	    series1.getData().add(new XYChart.Data<>("1", 2000));
+	    series1.getData().add(new XYChart.Data<>("2", 1000));
+	    series1.getData().add(new XYChart.Data<>("3", 800));
+	    series1.getData().add(new XYChart.Data<>("4", 1800));
+	    series1.getData().add(new XYChart.Data<>("5", 2000));
+	    series1.getData().add(new XYChart.Data<>("6", 1000));
+	    CalorieChart.getData().add(series1);
 	}
 	
 }

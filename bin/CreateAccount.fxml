@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane prefHeight="415.0" prefWidth="682.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CreateAccountController">
+            <Label contentDisplay="CENTER" layoutX="257.0" layoutY="46.0" prefHeight="29.0" prefWidth="172.0" text="Create Account" textAlignment="CENTER">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="64.0" layoutY="96.0" text="Username " />
+            <Label layoutX="67.0" layoutY="195.0" text="Password" />
+            <Label layoutX="63.0" layoutY="302.0" text="Re-enter Password" />
+            <Label layoutX="560.0" layoutY="96.0" text="Profile Name" />
+            <TextField fx:id="txtFieldUsername" layoutX="63.0" layoutY="113.0" promptText="Enter Username" />
+            <PasswordField fx:id="txtFieldPswrd" layoutX="63.0" layoutY="212.0" promptText="Enter a password" />
+            <PasswordField fx:id="txtFieldPswrdConfirm" layoutX="64.0" layoutY="319.0" promptText="Re-enter your password" />
+            <TextField fx:id="txtFieldProfileName" layoutX="469.0" layoutY="113.0" promptText="Profiles display name" />
+            <Label layoutX="606.0" layoutY="156.0" text="Age" />
+            <Label layoutX="553.0" layoutY="264.0" text="Current Weight" />
+            <TextField fx:id="txtFieldAge" layoutX="469.0" layoutY="178.0" promptText="Enter your age" />
+            <TextField fx:id="txtFieldCrntWeight" layoutX="470.0" layoutY="290.0" promptText="How much do you weigh" />
+            <Label layoutX="561.0" layoutY="323.0" text="Goal Weight" />
+            <TextField fx:id="txtFieldGoalWeight" layoutX="470.0" layoutY="344.0" promptText="What is your goal weight" />
+            <RadioButton fx:id="radioKilo" layoutX="465.0" layoutY="383.0" mnemonicParsing="false" onAction="#radioKilo" text="Metric" />
+            <RadioButton fx:id="radioPounds" layoutX="532.0" layoutY="383.0" mnemonicParsing="false" onAction="#radioPounds" selected="true" text="US Customary" />
+            <Button fx:id="btnCrtAcct" layoutX="275.0" layoutY="337.0" mnemonicParsing="false" onAction="#createAcctBtn" prefHeight="64.0" prefWidth="136.0" text="Create Account" textAlignment="CENTER">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+            <Label layoutX="63.0" layoutY="237.0" prefHeight="44.0" prefWidth="161.0" text="Passwords must be between 8-15 characters and include at least one capital and number " textFill="#727272" wrapText="true">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="63.0" layoutY="138.0" prefHeight="17.0" prefWidth="161.0" text="Username has a 20 character limit" textAlignment="CENTER" textFill="#727272" wrapText="true">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+            <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="469.0" layoutY="138.0" prefHeight="17.0" prefWidth="161.0" text="Profile name has a 20 character limit" textAlignment="CENTER" textFill="#727272" wrapText="true">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
+   <TextField fx:id="txtFieldHeight" layoutX="473.0" layoutY="237.0" promptText="How tall are you (cm / in)" />
+   <Label layoutX="588.0" layoutY="216.0" text="Height" />
+		</Pane>
