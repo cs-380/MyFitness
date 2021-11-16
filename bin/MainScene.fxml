@@ -52,6 +52,7 @@
                       <NumberAxis fx:id="y" label="Calories" side="LEFT" upperBound="5000.0" />
                     </yAxis>
                   </LineChart>
+                  <Button layoutX="14.0" layoutY="64.0" mnemonicParsing="false" onAction="#createCalorieAlert" text="Button" />
                </children></AnchorPane>
       </content>
     </Tab>

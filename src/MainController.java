@@ -86,6 +86,10 @@ public class MainController implements Initializable
 		
 	}
 	
+	public void createCalorieAlert() 
+	{
+		AlertBox.display("Set your calories", "Set your calories");
+	}
 
     public void search_for_food() {
     	TextField inputs = getFoodSearchField();

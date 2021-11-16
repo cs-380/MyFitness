@@ -21,7 +21,7 @@
             <Font size="36.0" />
          </font>
       </Label>
-      <Label fx:id="lblWrongCredentials" layoutX="17.0" layoutY="134.0" text="Wrong username of password please retry or create an account" textAlignment="CENTER" textFill="#f80000" visible="false">
+      <Label fx:id="lblWrongCredentials" layoutX="17.0" layoutY="134.0" text="Wrong username or password please retry or create an account" textAlignment="CENTER" textFill="#f80000" visible="false">
          <font>
             <Font size="18.0" />
          </font>
