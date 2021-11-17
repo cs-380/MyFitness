@@ -204,6 +204,7 @@ public class CreateAccountController {
 			if(passesUsr == false)
 			{
 				txtFieldUsername.setStyle("-fx-text-box-border: #B22222;");
+				AlertBox.display("Name Issue", "The user name is too long or taken");
 			}
 			else
 			{
@@ -303,15 +304,37 @@ public class CreateAccountController {
 	//username check 
 	public boolean usernameCheck()
 	{
-		String usrN = gettxtFieldUsername();
-		if(usrN.length() > 0 && usrN.length() < 21)
+		try(Connection conn = DriverManager.getConnection("jdbc:sqlite:USER.db");
+		        Statement stmt = conn.createStatement();
+		        ResultSet rs = stmt.executeQuery("SELECT * FROM USER_DATA");
+				)
 		{
-			return true;
+				String usrN = gettxtFieldUsername();
+				boolean check = true;
+				while(rs.next())
+				{
+					
+					String tblUsr = rs.getString("username");
+					
+					if(tblUsr.equals(usrN))
+					{	
+				    	check = false;
+				    	break;
+					}
+				}
+				if(usrN.length() > 0 && usrN.length() < 21 && check == true)
+				{
+					return true;
+				}
+				else
+				{
+					return false;
 		}
-		else
-		{
+		}catch (SQLException  /*IOException */e) {
+			//Auto-generated catch block
+			e.printStackTrace();
 			return false;
-		}
+		 }
 		
 	}
 	//password checks
