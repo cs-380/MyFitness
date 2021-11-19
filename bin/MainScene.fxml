@@ -10,8 +10,6 @@
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
@@ -19,32 +17,35 @@
 <?import javafx.scene.shape.Ellipse?>
 <?import javafx.scene.text.Font?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="583.0" prefWidth="1231.0" style="-fx-background-color: grey;" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainController">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="555.0" prefWidth="1020.0" style="-fx-background-color: grey;" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainController">
   <tabs>
     <Tab id="MealList" style="-fx-background-color: lightblue;" text="Meal List">
       <content>
-        <AnchorPane fx:id="MealList" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: grey;">
+        <AnchorPane fx:id="MealList" minHeight="0.0" minWidth="0.0" prefHeight="555.0" prefWidth="1015.0" style="-fx-background-color: grey;">
                <children>
-                  <TextArea fx:id="tArea" editable="false" layoutX="655.0" layoutY="128.0" prefHeight="369.0" prefWidth="488.0" />
-                  <Button fx:id="AddFoodButton" layoutX="190.0" layoutY="83.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: lightblue;" text="Add Specific Food" />
-                  <Button fx:id="AddMealButton" layoutX="496.0" layoutY="83.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: lightblue;" text="Add Meal" />
-                  <Button fx:id="GenerateMealButton" layoutX="995.0" layoutY="71.0" mnemonicParsing="false" onAction="#GenerateMeal" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: lightblue;" text="Generate Meal" />
-                  <TextField layoutX="190.0" layoutY="157.0" style="-fx-background-color: red;" />
-                  <TextField layoutX="190.0" layoutY="128.0" style="-fx-background-color: red;" />
-                  <TextField layoutX="190.0" layoutY="189.0" style="-fx-background-color: red;" />
-                  <TextField layoutX="496.0" layoutY="156.0" style="-fx-background-color: red;" />
-                  <TextField layoutX="496.0" layoutY="127.0" style="-fx-background-color: red;" />
-                  <TextField layoutX="496.0" layoutY="188.0" style="-fx-background-color: red;" />
-                  <Button fx:id="NutritionSearchButton" layoutX="825.0" layoutY="71.0" mnemonicParsing="false" onAction="#FoodSearch" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: lightblue;" text="Nutrition search" />
-                  <TextField fx:id="foodSearchField" layoutX="825.0" layoutY="103.0" onAction="#FoodSearch" promptText="Name of food" style="-fx-background-color: red;" />
+                  <TextArea fx:id="tArea" editable="false" layoutX="540.0" layoutY="165.0" minHeight="335.0" minWidth="425.0" prefHeight="335.0" prefWidth="425.0" />
+                  <Button fx:id="AddFoodButton" alignment="CENTER" layoutX="70.0" layoutY="85.0" minHeight="35.0" minWidth="120.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: lightblue;" text="Add Specific Food" />
+                  <Button fx:id="AddMealButton" alignment="CENTER" layoutX="312.0" layoutY="85.0" minHeight="35.0" minWidth="120.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: lightblue;" text="Add Meal" />
+                  <Button fx:id="GenerateMealButton" alignment="CENTER" layoutX="778.0" layoutY="85.0" minHeight="35.0" minWidth="120.0" mnemonicParsing="false" onAction="#GenerateMeal" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: lightblue;" text="Generate Meal" />
+                  <TextField layoutX="55.0" layoutY="160.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0" promptText="Calories per Serving:" style="-fx-background-color: white;" />
+                  <TextField layoutX="55.0" layoutY="130.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0" promptText="Food Name:" style="-fx-background-color: white;" />
+                  <TextField layoutX="55.0" layoutY="190.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0" promptText="Protein per Serving:" style="-fx-background-color: white;" />
+                  <TextField layoutX="55.0" layoutY="220.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0" promptText="Carbs per Serving:" style="-fx-background-color: white;" />
+                  <TextField layoutX="297.0" layoutY="130.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0" promptText="Add a Food:" style="-fx-background-color: white;" />
+                  <TextField layoutX="55.0" layoutY="250.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0" promptText="Sugars per Serving:" style="-fx-background-color: white;" />
+                  <Button fx:id="NutritionSearchButton" alignment="CENTER" layoutX="608.0" layoutY="85.0" minHeight="35.0" minWidth="120.0" mnemonicParsing="false" onAction="#FoodSearch" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: lightblue;" text="Nutrition search" />
+                  <TextField fx:id="foodSearchField" layoutX="678.0" layoutY="130.0" minHeight="25.0" minWidth="150.0" onAction="#FoodSearch" prefHeight="25.0" prefWidth="150.0" promptText="Search All Foods:" style="-fx-background-color: white;" />
+                  <TextField layoutX="55.0" layoutY="280.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0" promptText="Fiber per Serving:" style="-fx-background-color: white;" />
+                  <TextField layoutX="55.0" layoutY="310.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0" promptText="Fats per Serving:" style="-fx-background-color: white;" />
+                  <TextArea layoutX="272.0" layoutY="165.0" minHeight="335.0" minWidth="200.0" prefHeight="335.0" prefWidth="200.0" />
                </children></AnchorPane>
       </content>
     </Tab>
     <Tab id="CalorieTracker" style="-fx-background-color: lightblue;" text="Calorie Tracker">
       <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="555.0" prefWidth="1050.0">
                <children>
-                  <LineChart id="CalorieChart" fx:id="CalorieChart" layoutX="366.0" layoutY="76.0" title="Calories Per Day">
+                  <LineChart id="CalorieChart" fx:id="CalorieChart" layoutX="260.0" layoutY="64.0" title="Calories Per Day">
                     <xAxis>
                       <CategoryAxis label="Day" prefHeight="42.0" prefWidth="443.0" side="BOTTOM" fx:id="x" />
                     </xAxis>
@@ -52,54 +53,38 @@
                       <NumberAxis fx:id="y" label="Calories" side="LEFT" upperBound="5000.0" />
                     </yAxis>
                   </LineChart>
-                  <Button layoutX="14.0" layoutY="64.0" mnemonicParsing="false" onAction="#createCalorieAlert" text="Button" />
+                  <Button layoutX="20.0" layoutY="20.0" mnemonicParsing="false" onAction="#createCalorieAlert" text="Button" />
                </children></AnchorPane>
       </content>
     </Tab>
       <Tab id="WorkoutRegimen" style="-fx-background-color: lightblue;" text="Workout Regimen">
         <content>
-          <AnchorPane fx:id="WorkoutRegimen" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: grey;">
+          <AnchorPane fx:id="WorkoutRegimen" minHeight="0.0" minWidth="0.0" prefHeight="555.0" prefWidth="1050.0" style="-fx-background-color: grey;">
                <children>
-                  <Button layoutX="51.0" layoutY="36.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="98.0" text="Log an exersice" textAlignment="CENTER" wrapText="true" />
-                  <Button layoutX="51.0" layoutY="158.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="98.0" text="Create new saved Exersice" textAlignment="CENTER" wrapText="true" />
-                  <Button layoutX="51.0" layoutY="448.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="98.0" text="Enter todays workout" textAlignment="CENTER" wrapText="true" />
-                  <Label layoutX="184.0" layoutY="36.0" text="Time spent (minutes)" />
-                  <Label layoutX="401.0" layoutY="36.0" text="Calories Burnt " />
-                  <Label layoutX="587.0" layoutY="36.0" text="Exersice name " />
-                  <TextField layoutX="190.0" layoutY="65.0" prefHeight="25.0" prefWidth="105.0" promptText="60 " />
-                  <TextField layoutX="548.0" layoutY="65.0" promptText="Treadmill" />
-                  <TextField layoutX="389.0" layoutY="65.0" prefHeight="25.0" prefWidth="105.0" promptText="560" />
-                  <Label layoutX="185.0" layoutY="162.0" text="Time spent (minutes)" />
-                  <TextField layoutX="190.0" layoutY="187.0" prefHeight="25.0" prefWidth="105.0" promptText="60 " />
-                  <Label layoutX="401.0" layoutY="162.0" text="Calories Burnt " />
-                  <TextField layoutX="389.0" layoutY="187.0" prefHeight="25.0" prefWidth="105.0" promptText="560" />
-                  <Label layoutX="587.0" layoutY="162.0" text="Custom exersice name " />
-                  <TextField layoutX="570.0" layoutY="187.0" promptText="Monday Morning Treadmill" />
-                  <ListView layoutX="182.0" layoutY="448.0" prefHeight="82.0" prefWidth="263.0" />
-                  <Label layoutX="281.0" layoutY="431.0" text="Exersices " />
-                  <Button layoutX="51.0" layoutY="295.0" mnemonicParsing="false" prefHeight="88.0" prefWidth="98.0" text="Add selected custom Exersices " textAlignment="CENTER" wrapText="true" />
-                  <ListView layoutX="182.0" layoutY="297.0" prefHeight="82.0" prefWidth="263.0" />
-                  <Label layoutX="259.0" layoutY="280.0" text="Custom exersices " />
-                  <Button layoutX="463.0" layoutY="297.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="108.0" text="Delete selected custom exerices" textAlignment="CENTER" wrapText="true" />
-                  <Button layoutX="463.0" layoutY="447.0" mnemonicParsing="false" prefHeight="84.0" prefWidth="108.0" text="Remove selected exersices from todays workout" textAlignment="CENTER" wrapText="true" />
+                  <Button layoutX="50.0" layoutY="136.0" minHeight="85.0" minWidth="100.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="100.0" text="Log Exercise" textAlignment="CENTER" wrapText="true" />
+                  <Button layoutX="50.0" layoutY="306.0" minHeight="85.0" minWidth="100.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="100.0" text="Log Workout" textAlignment="CENTER" wrapText="true" />
+                  <Label layoutX="167.0" layoutY="148.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0" text="Time Spent (min):" />
+                  <Label layoutX="332.0" layoutY="148.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0" text="Calories Burnt:" />
+                  <Label layoutX="497.0" layoutY="148.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0" text="Exersice:" />
+                  <TextField layoutX="167.0" layoutY="173.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0" promptText="Enter Time:" />
+                  <TextField layoutX="497.0" layoutY="173.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0" promptText="Enter Exercise:" />
+                  <TextField layoutX="332.0" layoutY="173.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0" promptText="Enter Calories:" />
+                  <ListView layoutX="180.0" layoutY="306.0" minHeight="85.0" minWidth="225.0" prefHeight="85.0" prefWidth="225.0" />
+                  <Label alignment="CENTER" layoutX="215.0" layoutY="281.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0" text="Exersices " />
+                  <Button layoutX="435.0" layoutY="306.0" minHeight="85.0" minWidth="100.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="100.0" text="Remove from Workout" textAlignment="CENTER" wrapText="true" />
                </children></AnchorPane>
         </content>
       </Tab>
       <Tab id="FitnessGoals" style="-fx-background-color: lightblue;" text="User Profile ">
          <content>
-            <AnchorPane fx:id="MealList1" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: grey;">
+            <AnchorPane fx:id="MealList1" minHeight="0.0" minWidth="0.0" prefHeight="555.0" prefWidth="1050.0" style="-fx-background-color: grey;">
                <children>
-                  <Label fx:id="lblName" layoutX="128.0" layoutY="48.0" text="NAME" />
-                  <ImageView fitHeight="65.0" fitWidth="63.0" layoutX="28.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../../Downloads/icons8-artificial-intelligence-50.png" />
-                     </image>
-                  </ImageView>
-                  <Label fx:id="lblAge" layoutX="128.0" layoutY="88.0" text="AGE" />
-                  <Label fx:id="lblCrtWei" layoutX="126.0" layoutY="199.0" text="CURRENT WEIGHT" />
-                  <Label fx:id="lblGoalWei" layoutX="128.0" layoutY="236.0" text="GOAL WEIGHT" />
-                  <Label fx:id="lblHeight" layoutX="128.0" layoutY="124.0" text="HEIGHT" />
-                  <LineChart layoutX="91.0" layoutY="271.0" prefHeight="267.0" prefWidth="571.0">
+                  <Label fx:id="lblName" layoutX="30.0" layoutY="30.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0" text="Name:" />
+                  <Label fx:id="lblAge" layoutX="30.0" layoutY="55.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0" text="Age:" />
+                  <Label fx:id="lblCrtWei" layoutX="30.0" layoutY="130.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0" text="Current Weight:" />
+                  <Label fx:id="lblGoalWei" layoutX="30.0" layoutY="155.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0" text="Goal Weight:" />
+                  <Label fx:id="lblHeight" layoutX="30.0" layoutY="80.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0" text="Height:" />
+                  <LineChart layoutX="30.0" layoutY="235.0" prefHeight="267.0" prefWidth="571.0">
                     <xAxis>
                       <CategoryAxis side="BOTTOM" />
                     </xAxis>
@@ -107,21 +92,21 @@
                       <NumberAxis side="LEFT" />
                     </yAxis>
                   </LineChart>
-                  <Label layoutX="897.0" layoutY="39.0" prefHeight="36.0" prefWidth="185.0" text="Achievements &amp; PRs">
+                  <Label alignment="CENTER" layoutX="369.0" layoutY="38.0" prefHeight="36.0" prefWidth="185.0" text="Records and Goals:">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="842.0" layoutY="88.0" prefHeight="17.0" prefWidth="72.0" text="Squat : 430" />
-                  <Label layoutX="842.0" layoutY="124.0" text="Bench : 340" />
-                  <Label layoutX="840.0" layoutY="161.0" text="Deadlift : 615" />
-                  <Label layoutX="840.0" layoutY="199.0" prefHeight="17.0" prefWidth="90.0" text="Mile time : 5:50" />
-                  <Label layoutX="932.0" layoutY="260.0" prefHeight="23.0" prefWidth="102.0" text="Top Awards ">
+                  <Label layoutX="325.0" layoutY="80.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0" text="Best Squat: 430" />
+                  <Label layoutX="325.0" layoutY="105.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0" text="Best Bench: 340" />
+                  <Label layoutX="325.0" layoutY="130.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0" text="Best Deadlift: 615" />
+                  <Label layoutX="325.0" layoutY="155.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0" text="Best Mile Time: 5:50" />
+                  <Label layoutX="753.0" layoutY="64.0" prefHeight="23.0" prefWidth="102.0" text="Top Awards ">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Ellipse layoutX="818.0" layoutY="385.0" radiusX="67.0" radiusY="80.0" stroke="BLACK" strokeType="INSIDE">
+                  <Ellipse layoutX="719.0" layoutY="388.0" radiusX="67.0" radiusY="80.0" stroke="BLACK" strokeType="INSIDE">
                      <fill>
                         <LinearGradient endX="1.0" endY="1.0">
                            <stops>
@@ -139,7 +124,7 @@
                         </LinearGradient>
                      </fill>
                   </Ellipse>
-                  <Ellipse layoutX="983.0" layoutY="385.0" radiusX="67.0" radiusY="80.0" stroke="BLACK" strokeType="INSIDE">
+                  <Ellipse layoutX="804.0" layoutY="184.0" radiusX="67.0" radiusY="80.0" stroke="BLACK" strokeType="INSIDE">
                      <fill>
                         <LinearGradient endX="1.0" endY="1.0">
                            <stops>
@@ -157,7 +142,7 @@
                         </LinearGradient>
                      </fill>
                   </Ellipse>
-                  <Ellipse layoutX="1149.0" layoutY="385.0" radiusX="67.0" radiusY="80.0" stroke="BLACK" strokeType="INSIDE">
+                  <Ellipse layoutX="888.0" layoutY="388.0" radiusX="67.0" radiusY="80.0" stroke="BLACK" strokeType="INSIDE">
                      <fill>
                         <LinearGradient endX="1.0" endY="1.0">
                            <stops>
@@ -175,17 +160,17 @@
                         </LinearGradient>
                      </fill>
                   </Ellipse>
-                  <Label layoutX="759.0" layoutY="473.0" text="5 Day workout streak!" />
-                  <Label layoutX="928.0" layoutY="473.0" text="600 lb deadlift club!" />
-                  <Label layoutX="1094.0" layoutY="473.0" text="3 day Macros streak" />
-                  <Label layoutX="1034.0" layoutY="88.0" prefHeight="17.0" prefWidth="97.0" text="Squat Goal : 450" />
-                  <Label layoutX="1034.0" layoutY="124.0" prefHeight="17.0" prefWidth="97.0" text="Bench Goal : 350" />
-                  <Label layoutX="1039.0" layoutY="161.0" prefHeight="17.0" prefWidth="110.0" text="Deadlift Goal : 630" />
-                  <Label layoutX="1037.0" layoutY="199.0" prefHeight="17.0" prefWidth="91.0" text="Mile Goal : 5:45" />
-                  <Button layoutX="1140.0" layoutY="13.0" mnemonicParsing="false" text="Edit Profile" />
-                  <Button fx:id="btnLogout" layoutX="1140.0" layoutY="45.0" mnemonicParsing="false" onAction="#logout" prefHeight="25.0" prefWidth="75.0" text="Logout" />
-                  <Label fx:id="lblStartWei" layoutX="128.0" layoutY="161.0" text="START WEIGHT" />
-                  <Label layoutX="362.0" layoutY="268.0" text="Progress" />
+                  <Label alignment="CENTER" layoutX="644.0" layoutY="476.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0" text="5 Day Workout Streak!" />
+                  <Label alignment="CENTER" layoutX="729.0" layoutY="272.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0" text="600 lb Deadlift Club!" />
+                  <Label alignment="CENTER" layoutX="813.0" layoutY="476.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0" text="3 Day Macros Streak!" />
+                  <Label layoutX="515.0" layoutY="80.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0" text="Squat Goal: 450" />
+                  <Label layoutX="515.0" layoutY="105.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0" text="Bench Goal: 350" />
+                  <Label layoutX="515.0" layoutY="130.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0" text="Deadlift Goal: 630" />
+                  <Label layoutX="515.0" layoutY="155.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0" text="Mile Goal: 5:45" />
+                  <Button layoutX="920.0" layoutY="20.0" minHeight="25.0" minWidth="75.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Edit Profile" />
+                  <Button fx:id="btnLogout" layoutX="920.0" layoutY="50.0" minHeight="25.0" minWidth="75.0" mnemonicParsing="false" onAction="#logout" prefHeight="25.0" prefWidth="75.0" text="Logout" />
+                  <Label fx:id="lblStartWei" layoutX="30.0" layoutY="105.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0" text="Starting Weight:" />
+                  <Label alignment="CENTER" layoutX="250.0" layoutY="222.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0" text="Progress" />
                </children></AnchorPane>
          </content>
       </Tab>
