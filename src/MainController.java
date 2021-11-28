@@ -35,6 +35,8 @@ public class MainController implements Initializable
 	@FXML
 	private Button btnLogout;
 	@FXML
+	private Button btnEditProfile;
+	@FXML
 	private TextArea tArea;
 	@FXML
 	private TextField foodSearchField;
@@ -121,6 +123,27 @@ public class MainController implements Initializable
 		this.foodSearchField = foodSearchField;
 	}
 	
+	public void editProfile(ActionEvent event)
+	{
+		
+		try 
+		{
+			//Close main scene 
+			Stage stage1 = (Stage) btnEditProfile.getScene().getWindow();
+			stage1.close();
+    	
+			//open login ui 
+			Parent root = FXMLLoader.load(getClass().getResource("EditAccount.fxml"));
+			stage1.setTitle("Edit Account");
+			stage1.setScene(new Scene(root));
+			stage1.show();
+		
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	public void logout(ActionEvent event)
 	{
 		
@@ -141,6 +164,8 @@ public class MainController implements Initializable
 			e.printStackTrace();
 		}
 	}
+	
+	
 //TODO 
 	private void init()
 	{
