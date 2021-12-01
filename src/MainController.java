@@ -99,16 +99,21 @@ public class MainController implements Initializable
         //System.out.println("Type in search: ");
         String input = inputs.getText();
         Food[] test_search = new Food[0];
-        if (input.equals(""))
+        boolean paused = false;
+        if (!input.equals(""))
         {
     		test_search = FOOD_DATA.searching(input);
     		//if(tableName.equals("MEAL_DATA"))test_search = MEAL_DATA.searching(input);
     		String str = "";
     		for(int i = 0; i < test_search.length; i++) {
+    			while(paused)
+    			{
+    				paused = AlertBox.displayPause("Testing", "click to display next 10");
+    			}
     			str = test_search[i].toString();
     			settArea(str);
-    			if (i == 10) {
-    				AlertBox.display("Test", "Testing");
+    			if (i % 10 == 0) {
+    				paused = true;
     			}
     		}
         }

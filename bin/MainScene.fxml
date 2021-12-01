@@ -167,7 +167,7 @@
                   <Label layoutX="515.0" layoutY="105.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0" text="Bench Goal: 350" />
                   <Label layoutX="515.0" layoutY="130.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0" text="Deadlift Goal: 630" />
                   <Label layoutX="515.0" layoutY="155.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0" text="Mile Goal: 5:45" />
-                  <Button layoutX="920.0" layoutY="20.0" minHeight="25.0" minWidth="75.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" text="Edit Profile" />
+                  <Button fx:id="btnEditProfile" layoutX="920.0" layoutY="20.0" minHeight="25.0" minWidth="75.0" mnemonicParsing="false" onAction="#editProfile" prefHeight="25.0" prefWidth="75.0" text="Edit Profile" />
                   <Button fx:id="btnLogout" layoutX="920.0" layoutY="50.0" minHeight="25.0" minWidth="75.0" mnemonicParsing="false" onAction="#logout" prefHeight="25.0" prefWidth="75.0" text="Logout" />
                   <Label fx:id="lblStartWei" layoutX="30.0" layoutY="105.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0" text="Starting Weight:" />
                   <Label alignment="CENTER" layoutX="250.0" layoutY="222.0" minHeight="25.0" minWidth="150.0" prefHeight="25.0" prefWidth="150.0" text="Progress" />

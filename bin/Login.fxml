@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane minHeight="500.0" minWidth="500.0" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginController">
+<Pane minHeight="1000.0" minWidth="1000.0" prefHeight="1000.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoginController">
    <children>
       <PasswordField fx:id="txtFieldPswrd" layoutX="150.0" layoutY="251.0" minHeight="25.0" minWidth="200.0" prefHeight="25.0" prefWidth="200.0" promptText="Password" />
       <TextField fx:id="txtFieldUsr" layoutX="150.0" layoutY="196.0" minHeight="25.0" minWidth="200.0" prefHeight="25.0" prefWidth="200.0" promptText="Username" />

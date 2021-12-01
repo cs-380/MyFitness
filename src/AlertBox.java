@@ -29,7 +29,6 @@ public class AlertBox {
 	public static boolean displayPause(String title, String message ) {
 		Stage window = new Stage();
 		
-		window.initModality(Modality.APPLICATION_MODAL);
 		window.setTitle(title);
 		window.setMinWidth(250);
 		
