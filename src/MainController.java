@@ -62,7 +62,8 @@ public class MainController implements Initializable
     private NumberAxis y;
 
 
-    private static boolean paused = false;
+    private int marker = 0;
+    private Food[] test_search = new Food[0];
 	
 	public TextArea gettArea()
 	{
@@ -101,30 +102,38 @@ public class MainController implements Initializable
        // scan = new Scanner(System.in);
         //System.out.println("Type in search: ");
         String input = inputs.getText();
-        Food[] test_search = new Food[0];
+        
         
         if (!input.equals(""))
         {
     		test_search = FOOD_DATA.searching(input);
     		//if(tableName.equals("MEAL_DATA"))test_search = MEAL_DATA.searching(input);
-    		String str = "";
-    		int a = 0;
-    		for(int i = a; i < test_search.length; i++) {
-    			while(paused)
-    			{
-    				paused = AlertBox.displayPause("Paused", "Close for next Results");
-    			}
-    			if((i % 10 == 0 && i !=0)) {
-    				paused = true;
-    			}
-    			str = test_search[i].toString();
-    			settArea(str);
+    		if(marker + 10 > test_search.length)
+    		{
+    			String str = "";
+    			int i = marker;
+        		for(; i < test_search.length; i++) {
+        			str = test_search[i].toString();
+        			settArea(str);
+        		}
+        		marker = 0;
     		}
-        }
+    		else
+    		{
+    			String str = "";
+    			int i = marker;
+        		for(; i < (marker + 10); i++) {
+        			str = test_search[i].toString();
+        			settArea(str);
+        		}
+    			marker = i;
+    		}
+    	}
 		
     }
 	public void FoodSearch(ActionEvent event) throws IOException
 	{
+		marker = 0;
 		tArea.clear();
 		search_for_food();
 	}
@@ -158,7 +167,32 @@ public class MainController implements Initializable
 	
 	public void unPause(ActionEvent event)
 	{
-		paused = false;
+		tArea.clear();
+		if(marker + 10 > test_search.length)
+		{
+			String str = "";
+			int i = marker;
+    		for(; i < test_search.length; i++) {
+    			str = test_search[i].toString();
+    			settArea(str);
+    		}
+    		marker = 0;
+		}
+		else
+		{
+			String str = "";
+			int i = marker;
+    		for(; i < (marker + 10); i++) {
+    			str = test_search[i].toString();
+    			settArea(str);
+    		}
+			marker = i;
+		}
+	}
+	
+	public void displaySearch()
+	{
+		
 	}
 	
 	public void logout(ActionEvent event)
