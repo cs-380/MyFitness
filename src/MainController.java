@@ -36,6 +36,8 @@ public class MainController implements Initializable
 	private Button btnLogout;
 	@FXML
 	private Button btnEditProfile;
+    @FXML
+    private Button btnContinue;
 	@FXML
 	private TextArea tArea;
 	@FXML
@@ -59,7 +61,8 @@ public class MainController implements Initializable
     @FXML
     private NumberAxis y;
 
-	
+
+    private static boolean paused = false;
 	
 	public TextArea gettArea()
 	{
@@ -99,22 +102,23 @@ public class MainController implements Initializable
         //System.out.println("Type in search: ");
         String input = inputs.getText();
         Food[] test_search = new Food[0];
-        boolean paused = false;
+        
         if (!input.equals(""))
         {
     		test_search = FOOD_DATA.searching(input);
     		//if(tableName.equals("MEAL_DATA"))test_search = MEAL_DATA.searching(input);
     		String str = "";
-    		for(int i = 0; i < test_search.length; i++) {
+    		int a = 0;
+    		for(int i = a; i < test_search.length; i++) {
     			while(paused)
     			{
-    				paused = AlertBox.displayPause("Testing", "click to display next 10");
+    				paused = AlertBox.displayPause("Paused", "Close for next Results");
+    			}
+    			if((i % 10 == 0 && i !=0)) {
+    				paused = true;
     			}
     			str = test_search[i].toString();
     			settArea(str);
-    			if (i % 10 == 0) {
-    				paused = true;
-    			}
     		}
         }
 		
@@ -150,6 +154,11 @@ public class MainController implements Initializable
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public void unPause(ActionEvent event)
+	{
+		paused = false;
 	}
 	
 	public void logout(ActionEvent event)
